@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   get 'landings/index'
 
-  devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords"}, skip: [:sessions, :registrations]
+  devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords"}, skip: [:sessions, :registrations]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  #oauth - http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+  resources :searches
 
   # You can have the root of your site routed with "root"
   root 'landings#index'
@@ -58,13 +63,13 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
+
   #->Prelang (user_login:devise/stylized_paths)
   devise_scope :user do
     get    "login"   => "users/sessions#new",         as: :new_user_session
     post   "login"   => "users/sessions#create",      as: :user_session
     delete "signout" => "users/sessions#destroy",     as: :destroy_user_session
-    
+
     get    "signup"  => "users/registrations#new",    as: :new_user_registration
     post   "signup"  => "users/registrations#create", as: :user_registration
     put    "signup"  => "users/registrations#update", as: :update_user_registration
