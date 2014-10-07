@@ -63,6 +63,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arbre (1.0.2)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
@@ -78,6 +79,7 @@ GEM
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
+    buftok (0.2.0)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -88,6 +90,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     debug_inspector (0.0.2)
+    equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.2.1)
     faraday (0.9.0)
@@ -99,6 +102,9 @@ GEM
       activesupport (>= 3.2, < 5)
     hashie (3.3.1)
     hike (1.2.3)
+    http (0.6.2)
+      http_parser.rb (~> 0.6.0)
+    http_parser.rb (0.6.0)
     i18n (0.6.11)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
@@ -119,12 +125,15 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.4.2)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    naught (1.0.0)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -195,6 +204,7 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    simple_oauth (0.2.0)
     slop (3.6.0)
     spring (1.1.3)
     sprockets (2.11.0)
@@ -310,6 +320,17 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.4.0)
       coffee-rails
+    twitter (5.11.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (~> 0.0.9)
+      faraday (~> 0.9.0)
+      http (~> 0.6.0)
+      http_parser.rb (~> 0.6.0)
+      json (~> 1.8)
+      memoizable (~> 0.4.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.2.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     tzinfo-data (1.2014.8)
@@ -347,6 +368,7 @@ DEPENDENCIES
   simple_form
   spring
   turbolinks
+  twitter
   tzinfo-data
   uglifier (>= 1.3.0)
   validates_formatting_of
