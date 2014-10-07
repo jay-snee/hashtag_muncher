@@ -1,4 +1,5 @@
 ActiveAdmin.register Hashtag do
+  permit_params :tag, :user_id, :occurrence_id
 
 
   # See permitted parameters documentation:
