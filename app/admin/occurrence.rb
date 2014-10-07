@@ -1,4 +1,5 @@
 ActiveAdmin.register Occurrence do
+  permit_params :hashtag_id, :user_id, :twitter_user_id, :tweet_id
 
 
   # See permitted parameters documentation:
